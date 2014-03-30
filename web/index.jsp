@@ -1,4 +1,4 @@
-
+<!--chatting module frontend-->
 <html>
     <head>
         <script type="text/javascript">

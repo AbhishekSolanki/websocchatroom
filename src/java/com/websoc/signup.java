@@ -31,24 +31,20 @@ public class signup extends HttpServlet {
         email=request.getParameter("email");
         userName=request.getParameter("userName");
         password=request.getParameter("password");
-        bDate=request.getParameter("bMonth");
+        bMonth=request.getParameter("bMonth");
         bDate=request.getParameter("bDate");
-        bDate=request.getParameter("bYear");
+        bYear=request.getParameter("bYear");
         gender=request.getParameter("gender");
         mobile=request.getParameter("mobile"); 
+        String birthDate = bDate+"-"+bMonth+"-"+bYear;
+        signupDAO signupObject = new signupDAO(name, email, userName, password, birthDate, gender, mobile);
         
-        signupDAO signupObject = new signupDAO(name, email, userName, password, bDate, gender, mobile);
-       
         try {
             signupObject.execute();
             System.out.println("Registration Completed Successfully: signup.java Servlet");
         } catch (Exception ex) {
             System.out.println(ex+"\n Error in Signup Servlets");
-        }
-        
-        
-              
-       
+        }   
         
     }
 
