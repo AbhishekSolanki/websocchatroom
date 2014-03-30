@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+//Servlet for signup, sends all the parameter to signupDAO.java ,which provides security from unauthorized DataBase access. 
 package com.websoc;
 
 import java.io.IOException;
@@ -16,7 +13,6 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 /**
- *
  * @author Abhishek Solanki
  */
 @WebServlet(name = "signup", urlPatterns = {"/signup"})

@@ -1,7 +1,4 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+// Database Access Object for Signup
 package com.websoc;
 
 import java.sql.*;
@@ -9,7 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.j2ee.statistics.JDBCConnectionPoolStats;
 /**
- *
+ 
  * @author Abhishek Solanki
  */
 public class signupDAO {
@@ -35,13 +32,11 @@ public class signupDAO {
        Class.forName("com.mysql.jdbc.Driver").newInstance();
        Connection con = DriverManager.getConnection(url,dbUser,dbPass);
        Statement stm = con.createStatement();
-       String query = "insert into messaging.main values(default,'"+userName+"','"+email+"',aes_encrypt('"+password+"','"+key+"'),"
+         String query = "insert into messaging.main values(default,'"+userName+"','"+email+"',aes_encrypt('"+password+"','"+key+"'),"
                + "'"+lastAccessed+"','"+IP+"','"+name+"','"+bDate+"','"+gender+"',default,'"+mobile+"');";
        stm.executeUpdate(query);
        System.out.println("Success in signupDAO");
        
     }      
   
-        
-   
 }
