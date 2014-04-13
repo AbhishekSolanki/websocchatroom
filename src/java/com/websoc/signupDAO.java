@@ -2,6 +2,7 @@
 package com.websoc;
 
 import java.sql.*;
+import com.websoc.DBCredentials;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.management.j2ee.statistics.JDBCConnectionPoolStats;
@@ -12,10 +13,11 @@ import javax.management.j2ee.statistics.JDBCConnectionPoolStats;
 public class signupDAO {
     
     private String name,email,userName,password,bDate,gender,mobile,lastAccessed,IP;
-    String key = "Messaging";
-    String url = "jdbc:mysql://localhost:3306/";
-    String dbUser = "root";
-    String dbPass ="krish";
+    DBCredentials dbObj = new DBCredentials();
+    String key = dbObj.getKEY();
+    String url = dbObj.getDBUrl();
+    String dbUser = dbObj.getDBUser();
+    String dbPass = dbObj.getDBPass();
     signupDAO(String name,String email,String userName,String password,String bDate,String gender,String mobile)
     {
         this.key = "messaginSystem";
@@ -37,6 +39,7 @@ public class signupDAO {
        stm.executeUpdate(query);
        System.out.println("Success in signupDAO");
        
+       //Code to create a user table for storing messages and file names
     }      
   
 }

@@ -5,6 +5,7 @@ import com.sun.xml.wss.impl.misc.HANonceManager;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
+import java.sql.Time;
 import java.util.*;
 import javax.json.Json;
 import javax.json.JsonArrayBuilder;
@@ -23,7 +24,9 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint("/chatroomserverendpoint")
 public class ChatroomServerEndpoint {
 
-    String username=null;
+    String username=null,arrayListMessage=null;
+    Date d = new Date();
+    ArrayList<String> allMessages = new ArrayList<>();
     static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
     Iterator<Session> iterator = chatroomUsers.iterator(); 
 
@@ -32,7 +35,7 @@ public class ChatroomServerEndpoint {
     public void onOpen(Session userSession) throws IOException
     {
         chatroomUsers.add(userSession);
-         Iterator<Session> iterator = chatroomUsers.iterator(); 
+        Iterator<Session> iterator = chatroomUsers.iterator();
         while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
     }
      
@@ -48,8 +51,14 @@ public class ChatroomServerEndpoint {
             while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
        } else {
           
+           // allMessages = (String)UserSession.getUserProperties().get("messages");
+          //aoperties().get("messages");llMessages.add(username+":"+message);
+           long msgTime = d.getTime();
+           arrayListMessage=msgTime+"#$%"+username+"#$%"+message;
+           System.out.println(arrayListMessage);
            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
             UserSession.getBasicRemote().sendText(buildJsonUsername());
+            //make entries in DB for received message
        }
         return null;
     }
@@ -57,6 +66,7 @@ public class ChatroomServerEndpoint {
     @OnClose
     public void onClose(Session userSession) throws IOException
     {
+        
         chatroomUsers.remove(userSession);
         Iterator<Session> iterator = chatroomUsers.iterator(); 
         while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
@@ -88,9 +98,10 @@ public class ChatroomServerEndpoint {
         try(JsonWriter jsonwriter = Json.createWriter(stringwriter)) 
         {
             jsonwriter.write(jasonObject);
+            // Make entries in database for messages
         }
         catch(Throwable t) { t.printStackTrace(); }
-        System.out.println(stringwriter.toString());
+        System.out.println("Json String : "+stringwriter.toString());
         return stringwriter.toString();
     }
     
@@ -108,6 +119,7 @@ public class ChatroomServerEndpoint {
         HashSet<String> returnset = new HashSet<String>();
         Iterator<Session> iterator = chatroomUsers.iterator(); 
         while(iterator.hasNext()) returnset.add(iterator.next().getUserProperties().get("username").toString());
+        System.out.println(returnset);
         return returnset;
     }
     
