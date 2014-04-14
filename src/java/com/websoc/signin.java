@@ -29,7 +29,8 @@ public class signin extends HttpServlet {
         password = request.getParameter("password");
 
         if(userName.equals("") || password.equals("")) {
-            out.println("Please don't fool our Server :-) !"); 
+            response.sendRedirect("/websocchatroom/error.jsp?errorCode=UPNULL");
+            //out.println("Please don't fool our Server :-) !"); 
         }
         else {
              out.println("Plase wait a moment while we are trying to connect");
@@ -49,8 +50,9 @@ public class signin extends HttpServlet {
              }
              catch(Exception e)
              {
-                 System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
-                 out.println("Error while login, please try again !");
+               //  System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
+                 response.sendRedirect("/websocchatroom/error.jsp?errorCode=signinDAO");
+               //  out.println("Error while login, please try again !");
                  
              }
         }
