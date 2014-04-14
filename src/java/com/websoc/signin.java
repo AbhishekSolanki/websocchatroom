@@ -51,7 +51,7 @@ public class signin extends HttpServlet {
              catch(Exception e)
              {
                //  System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
-                 response.sendRedirect("/websocchatroom/error.jsp?errorCode=signinDAO");
+                 response.sendRedirect("/websocchatroom/error.jsp?errorCode=LOGINERR");
                //  out.println("Error while login, please try again !");
                  
              }
