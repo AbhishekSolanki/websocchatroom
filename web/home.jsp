@@ -12,9 +12,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1><center>Welcome</center></h1>
+        <% 
+        %>
+        <h3><center>Welcome <% out.println(session.getAttribute("userName")); %></center></h3>
         <%
            out.println(session.getAttribute("ID"));
             %>
+        
     </body>
 </html>

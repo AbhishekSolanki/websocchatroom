@@ -16,6 +16,8 @@ import javax.json.JsonWriter;
 import javax.naming.ldap.HasControls;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import com.websoc.Handler;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -27,7 +29,9 @@ public class ChatroomServerEndpoint {
     String username=null,arrayListMessage=null;
     Date d = new Date();
     ArrayList<String> allMessages = new ArrayList<>();
-    static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
+    Handler handler = new Handler();
+    Set<Session> chatroomUsers = handler.getSession();
+            //Collections.synchronizedSet(new HashSet<Session>())
     Iterator<Session> iterator = chatroomUsers.iterator(); 
 
     
@@ -47,6 +51,7 @@ public class ChatroomServerEndpoint {
        if(username==null) {
        
             UserSession.getUserProperties().put("username",message);
+            
             UserSession.getBasicRemote().sendText(buildJsonData("System","You are now connected as "+message));
             while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
        } else {

@@ -1,6 +1,7 @@
 package com.websoc;
 
 import com.websoc.signinDAO;
+import com.websoc.Handler;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -36,18 +37,21 @@ public class signin extends HttpServlet {
              try {
                 int ID = signinObject.exeute();
                 HttpSession session = request.getSession();
+                Handler handler  = new Handler();
                 request.setAttribute("ID", ID);
                 request.setAttribute("userName",userName);
                 session.setAttribute("ID", ID);
                 session.setAttribute("userName", userName);
                 response.sendRedirect("/websocchatroom/home.jsp");
+            
                // getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
                 
              }
              catch(Exception e)
              {
-                 System.out.println("Error in signin.java unable to communicate with signinDAO");
+                 System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
                  out.println("Error while login, please try again !");
+                 
              }
         }
     }
