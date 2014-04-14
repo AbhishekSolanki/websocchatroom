@@ -34,7 +34,7 @@ public class signinDAO {
        Statement stm = con.createStatement();
        String query = "SELECT ID FROM messaging.main where userName='"+userName+"' and password=aes_encrypt('"+password+"','"+key+"');";
        ResultSet rs =  stm.executeQuery(query);
-       if(rs.next()) {System.out.println("User "+userName+" with ID "+rs.getInt(1)+"has logged in");}
+       if(rs.next()) {System.out.println("User "+userName+" with ID "+rs.getInt(1)+" has logged in");}
        return rs.getInt(1);
     }
      

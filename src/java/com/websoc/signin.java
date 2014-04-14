@@ -7,6 +7,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  *
@@ -33,6 +35,14 @@ public class signin extends HttpServlet {
              signinDAO signinObject = new signinDAO(userName, password);
              try {
                 int ID = signinObject.exeute();
+                HttpSession session = request.getSession();
+                request.setAttribute("ID", ID);
+                request.setAttribute("userName",userName);
+                session.setAttribute("ID", ID);
+                session.setAttribute("userName", userName);
+                response.sendRedirect("/websocchatroom/home.jsp");
+               // getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
+                
              }
              catch(Exception e)
              {
