@@ -24,6 +24,6 @@ public class DBCredentials {
     }
     String getKEY()
     {
-        return "Messaging";
+        return "messaginSystem";
     }
 }

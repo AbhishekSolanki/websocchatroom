@@ -20,7 +20,6 @@ public class signupDAO {
     String dbPass = dbObj.getDBPass();
     signupDAO(String name,String email,String userName,String password,String bDate,String gender,String mobile)
     {
-        this.key = "messaginSystem";
         this.name=name;
         this.email=email;
         this.userName=userName;
@@ -30,7 +29,7 @@ public class signupDAO {
         this.mobile=mobile;
     }
 
-    void execute() throws SQLException, ClassNotFoundException, IllegalAccessException, InstantiationException {
+    void execute() throws Exception {
        Class.forName("com.mysql.jdbc.Driver").newInstance();
        Connection con = DriverManager.getConnection(url,dbUser,dbPass);
        Statement stm = con.createStatement();

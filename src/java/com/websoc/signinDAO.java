@@ -27,14 +27,15 @@ public class signinDAO {
         this.password = password;
     }
      
-    void exeute() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+   int exeute() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
         
        Class.forName("com.mysql.jdbc.Driver").newInstance();
        Connection con = DriverManager.getConnection(url,dbUser,dbPass);
        Statement stm = con.createStatement();
-       String query = "SELECT ID FROM MESSAGING.MAIN WHERE userName='"+userName+"' AND aes_encrypt('"+password+"','"+key+"')";
+       String query = "SELECT ID FROM messaging.main where userName='"+userName+"' and password=aes_encrypt('"+password+"','"+key+"');";
        ResultSet rs =  stm.executeQuery(query);
-       if(rs.equals(true)) {System.out.println("TRUE");}
+       if(rs.next()) {System.out.println("TRUE");}
+       return 0;
     }
      
 }
