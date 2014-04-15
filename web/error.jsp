@@ -23,7 +23,7 @@
                 </a>
                 <span class="right">
                     <a href="#">
-                        <strong>Back to the Codrops Article</strong>
+                        <strong></strong>
                     </a>
                 </span>
             </div><!--/ Codrops top bar -->
