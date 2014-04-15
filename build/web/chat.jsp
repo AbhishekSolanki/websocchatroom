@@ -10,6 +10,7 @@
             
             function processOpen(message) {
                 messagesTextArea.value += "Server Connected..."+"\n";
+                WebSocket.send("abhi");
             }
             function processMessage(message)
             {
@@ -40,7 +41,7 @@
                 if(sendToText.value!="close")
                 {
                 WebSocket.send(sendToText.value);
-                textMessage.value="Please enter your message";
+                messagesTextArea.value="Please enter your message";
                 }
                 else webSocket.close();
                     

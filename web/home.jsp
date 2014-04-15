@@ -14,6 +14,17 @@
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
     </head>
     <body>
+        <%
+            response.setHeader("Cache-Control","no-cache");
+            response.setHeader("Cache-Control","no-store");
+            response.setHeader("Pragma","no-cache");
+            response.setDateHeader ("Expires", 0);
+
+            if(session.getAttribute("SessionID")==null && session.getAttribute("ID")==null)
+            {
+                response.sendRedirect("/websocchatroom/error.jsp?errorCode=INVALIDSESS");
+            }
+            %>
         <div class="container">
 		
 			<!-- Codrops top bar -->
@@ -22,7 +33,7 @@
                     <strong>&laquo; Previous : </strong>SIGN IN
                 </a>
                 <span class="right">
-                    <a href="#">
+                    <a href="/websocchatroom/logout.jsp">
                         <strong>Logout</strong>
                     </a>
                 </span>
@@ -48,7 +59,7 @@
                             
                             <nav class="codrops-demos">
                                 <br>
-					<a class="current-demo" href="signup.html">Chat Room</a>
+                                <a class="current-demo" href="/websocchatroom/chatRoom.jsp">Chat Room</a>
 					<a href="index2.html">Chat</a>
 					<a href="index3.html">File Transfer</a>
 					<a href="index4.html">History</a>

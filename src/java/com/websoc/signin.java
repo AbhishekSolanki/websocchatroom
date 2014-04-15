@@ -37,10 +37,11 @@ public class signin extends HttpServlet {
              signinDAO signinObject = new signinDAO(userName, password);
              try {
                 int ID = signinObject.exeute();
-                HttpSession session = request.getSession();
+                HttpSession session = request.getSession(true);
                 Handler handler  = new Handler();
                 request.setAttribute("ID", ID);
                 request.setAttribute("userName",userName);
+                session.setAttribute("SessionID", session.getId());
                 session.setAttribute("ID", ID);
                 session.setAttribute("userName", userName);
                 response.sendRedirect("/websocchatroom/home.jsp");

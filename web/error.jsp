@@ -54,6 +54,10 @@
             {
                  out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn.html>here</a></u></b> to try it again </center></h3>");
             }
+            else if(errorCode.equals("INVALIDSESS")) 
+            {
+                 out.println("<center><h3>This session doesnot exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try it again </center></h3>");
+            }
             else
             {
                 out.println("<center><h3>Our server failed to track down your error ! Please click <b><u><a href=signIn.html>here</a></u></b> to try it again</center></h3>");

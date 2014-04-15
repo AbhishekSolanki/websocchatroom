@@ -51,6 +51,9 @@
         <title>Chat Room Test</title>
     </head>
     <body>
+        <%
+            out.println(session.getAttribute("ID"));
+            %>
          <br><textarea id="messagesTextArea" rows="20" cols="70" readonly="readonly"></textarea>
          <textarea id="OnlineUsersTextArea" rows="20" cols="20" readonly="readonly"></textarea>
         <form>

@@ -37,7 +37,6 @@ public class ChatroomServerEndpoint {
     public void onOpen(Session userSession) throws IOException
     {
         chatroomUsers.add(userSession);
-        
         Iterator<Session> iterator = chatroomUsers.iterator();
         while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
     }

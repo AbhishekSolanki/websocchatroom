@@ -55,17 +55,13 @@ public class Peer2Peer {
        Iterator<Session> iterator = chatroomUsers.iterator(); 
        
        if(username==null) {
-            handler.putHash(username, userSession);
+           
             UserSession.getUserProperties().put("username",message);
             UserSession.getBasicRemote().sendText(buildJsonData("System","You are now connected as "+message));
             while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
        } else {
            long msgTime = d.getTime();
-           if(userSession.equals(handler.getHash("abhi")))
-           {
-              tempuser.add(userSession);
-           //   tempuser.add()
-           }
+   
            arrayListMessage=msgTime+"#$%"+username+"#$%"+message;
            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
             UserSession.getBasicRemote().sendText(buildJsonUsername());
