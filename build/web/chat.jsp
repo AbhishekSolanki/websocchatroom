@@ -2,7 +2,7 @@
 <html>
     <head>
         <script type="text/javascript">
-            var webSocket = new WebSocket("ws://localhost:8080/websocchatroom/chatroomserverendpoint");
+            var webSocket = new WebSocket("ws://localhost:8080/websocchatroom/Peer2Peer");
             webSocket.onopen = function(message){processOpen(message);};
             webSocket.onmessage = function(message){processMessage(message);};
             webSocket.onclose = function(message){processClose(message);};
@@ -51,6 +51,7 @@
         <title>Chat Room Test</title>
     </head>
     <body>
+        <text id="sendToText" />
          <br><textarea id="messagesTextArea" rows="20" cols="70" readonly="readonly"></textarea>
          <textarea id="OnlineUsersTextArea" rows="20" cols="20" readonly="readonly"></textarea>
         <form>

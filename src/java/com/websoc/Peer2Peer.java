@@ -1,7 +1,10 @@
+//ChatRoom Server
 package com.websoc;
 
+import com.google.common.eventbus.Subscribe;
 import com.sun.xml.rpc.encoding.soap.CollectionSerializer;
 import com.sun.xml.wss.impl.misc.HANonceManager;
+
 import java.io.IOException;
 import java.io.StringWriter;
 import java.math.BigDecimal;
@@ -16,25 +19,32 @@ import javax.json.JsonWriter;
 import javax.naming.ldap.HasControls;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import com.websoc.Handler;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Abhishek Solanki
  */
-@ServerEndpoint("/chatroomserverendpoint")
-public class ChatroomServerEndpoint {
+@ServerEndpoint("/Peer2Peer")
+public class Peer2Peer {
 
     String username=null,arrayListMessage=null;
     Date d = new Date();
     ArrayList<String> allMessages = new ArrayList<>();
-    static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
+    Handler handler = new Handler();
+    Set<Session> chatroomUsers = handler.getSession();
+            //Collections.synchronizedSet(new HashSet<Session>()
     Iterator<Session> iterator = chatroomUsers.iterator(); 
+    Session userSession,temp;
+    static Set<Session> tempuser = Collections.synchronizedSet(new HashSet<Session>());
 
     
     @OnOpen
     public void onOpen(Session userSession) throws IOException
     {
         chatroomUsers.add(userSession);
+        this.userSession=userSession;
         Iterator<Session> iterator = chatroomUsers.iterator();
         while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
     }
@@ -45,17 +55,18 @@ public class ChatroomServerEndpoint {
        Iterator<Session> iterator = chatroomUsers.iterator(); 
        
        if(username==null) {
-       
+            handler.putHash(username, userSession);
             UserSession.getUserProperties().put("username",message);
             UserSession.getBasicRemote().sendText(buildJsonData("System","You are now connected as "+message));
-            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
+            while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
        } else {
-          
-           // allMessages = (String)UserSession.getUserProperties().get("messages");
-          //aoperties().get("messages");llMessages.add(username+":"+message);
            long msgTime = d.getTime();
+           if(userSession.equals(handler.getHash("abhi")))
+           {
+              tempuser.add(userSession);
+           //   tempuser.add()
+           }
            arrayListMessage=msgTime+"#$%"+username+"#$%"+message;
-           System.out.println(arrayListMessage);
            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
             UserSession.getBasicRemote().sendText(buildJsonUsername());
             //make entries in DB for received message
