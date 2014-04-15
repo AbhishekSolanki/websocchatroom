@@ -16,6 +16,7 @@ import javax.json.JsonWriter;
 import javax.naming.ldap.HasControls;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
+import com.websoc.Handler;
 
 /**
  *
@@ -29,12 +30,14 @@ public class ChatroomServerEndpoint {
     ArrayList<String> allMessages = new ArrayList<>();
     static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
     Iterator<Session> iterator = chatroomUsers.iterator(); 
+    Handler handler = new Handler();
 
     
     @OnOpen
     public void onOpen(Session userSession) throws IOException
     {
         chatroomUsers.add(userSession);
+        
         Iterator<Session> iterator = chatroomUsers.iterator();
         while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
     }
@@ -43,19 +46,15 @@ public class ChatroomServerEndpoint {
     public String onMessage(String message, Session UserSession) throws IOException {
        username = (String)UserSession.getUserProperties().get("username");
        Iterator<Session> iterator = chatroomUsers.iterator(); 
-       
        if(username==null) {
-       
             UserSession.getUserProperties().put("username",message);
             UserSession.getBasicRemote().sendText(buildJsonData("System","You are now connected as "+message));
-            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
+           while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
        } else {
           
+         
+           
            // allMessages = (String)UserSession.getUserProperties().get("messages");
-          //aoperties().get("messages");llMessages.add(username+":"+message);
-           long msgTime = d.getTime();
-           arrayListMessage=msgTime+"#$%"+username+"#$%"+message;
-           System.out.println(arrayListMessage);
            while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
             UserSession.getBasicRemote().sendText(buildJsonUsername());
             //make entries in DB for received message
@@ -122,5 +121,7 @@ public class ChatroomServerEndpoint {
         System.out.println(returnset);
         return returnset;
     }
+    
+  
     
 }

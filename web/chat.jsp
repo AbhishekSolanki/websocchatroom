@@ -35,6 +35,16 @@
                 else webSocket.close();
                     
             }
+             function sendTo()
+            {
+                if(sendToText.value!="close")
+                {
+                WebSocket.send(sendToText.value);
+                textMessage.value="Please enter your message";
+                }
+                else webSocket.close();
+                    
+            }
             window.onbeforeunload=function() {
              
               webSocket.close();
@@ -51,7 +61,8 @@
         <title>Chat Room Test</title>
     </head>
     <body>
-        <text id="sendToText" />
+        <form><br>TO: <input type="text" id="sendToText">  <input onclick="sendTo();" value="OK" type="button"/></form>
+        <br>
          <br><textarea id="messagesTextArea" rows="20" cols="70" readonly="readonly"></textarea>
          <textarea id="OnlineUsersTextArea" rows="20" cols="20" readonly="readonly"></textarea>
         <form>

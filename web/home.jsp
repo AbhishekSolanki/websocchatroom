@@ -48,11 +48,11 @@
                             
                             <nav class="codrops-demos">
                                 <br>
-					<a class="current-demo" href="signup.html">Join Us</a>
-					<a href="index2.html">Sign In trouble</a>
-					<a href="index3.html">About</a>
-					<!--  <a href="index4.html"></a> -->
-					<!--  <a href="index5.html"></a> -->
+					<a class="current-demo" href="signup.html">Chat Room</a>
+					<a href="index2.html">Chat</a>
+					<a href="index3.html">File Transfer</a>
+					<a href="index4.html">History</a>
+                                         <a href="index5.html">Account</a>
 				</nav>
 
 			</section>

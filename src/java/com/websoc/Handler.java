@@ -3,6 +3,7 @@ package com.websoc;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Hashtable;
 import java.util.Set;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
@@ -19,7 +20,7 @@ import javax.websocket.Session;
 public class Handler {
    
     public static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
-    public static HashMap<String,Session> hash = new HashMap<>(20);
+    public static Hashtable<String,Session> hash = new Hashtable<>(20);
     
     public Set<Session> getSession()
     {
@@ -33,7 +34,12 @@ public class Handler {
     
     public Session getHash(String userName)
     {
-        return hash.get("abhi");
+        return hash.get(userName);
+    }
+    
+    public void removeHash(String userName)
+    {
+        hash.remove(userName);
     }
    
 }
