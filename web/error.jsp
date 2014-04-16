@@ -48,19 +48,19 @@
             
             if(errorCode.equals("UPNULL"))
             {
-                out.println("<center><h3>It seems you have left the username or password field blank, Please click <b><u><a href=signIn.html>here</a></u></b> to try it again</center></h3>");
+                out.println("<center><h3>It seems you have left the username or password field blank, Please click <b><u><a href=signIn.html>here</a></u></b> to try again</center></h3>");
             }
             else if(errorCode.equals("LOGINERR")) 
             {
-                 out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn.html>here</a></u></b> to try it again </center></h3>");
+                 out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
             }
             else if(errorCode.equals("INVALIDSESS")) 
             {
-                 out.println("<center><h3>This session doesnot exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try it again </center></h3>");
+                 out.println("<center><h3>This session doesnot exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
             }
             else
             {
-                out.println("<center><h3>Our server failed to track down your error ! Please click <b><u><a href=signIn.html>here</a></u></b> to try it again</center></h3>");
+                out.println("<center><h3>Our server failed to track down your error ! Please click <b><u><a href=signIn.html>here</a></u></b> to try again</center></h3>");
             }
         %>
                             
