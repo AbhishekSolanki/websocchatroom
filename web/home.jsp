@@ -34,13 +34,12 @@
                 </a>
                 <span class="right">
                     <a href="/websocchatroom/logout.jsp">
-                        <strong>Logout</strong>
+                        <strong>Logout: <%out.println(session.getAttribute("userName")); %></strong>
                     </a>
                 </span>
             </div><!--/ Codrops top bar -->
 			
 			<header>
-			
 				<h1>Welcome <strong><% out.println(session.getAttribute("userName")); %></strong></h1>
 				<h2>Good to see you again...</h2>
 				

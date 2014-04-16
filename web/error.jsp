@@ -56,7 +56,7 @@
             }
             else if(errorCode.equals("INVALIDSESS")) 
             {
-                 out.println("<center><h3>This session doesnot exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
+                 out.println("<center><h3>This session does not exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
             }
             else
             {

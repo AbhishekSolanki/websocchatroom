@@ -18,9 +18,10 @@
             webSocket.onmessage = function(message){processMessage(message);};
             webSocket.onclose = function(message){processClose(message);};
             webSocket.onerror = function(message){processError(message);};
-            
+            var userName = "<%= session.getAttribute("userName") %>";
             function processOpen(message) {
                 messagesTextArea.value += "Server Connected..."+"\n";
+                webSocket.send(userName);
             }
             function processMessage(message)
             {
@@ -62,6 +63,7 @@
      
 
     <body>
+       
         <% //Session checking script
             response.setHeader("Cache-Control","no-cache");
             response.setHeader("Cache-Control","no-store");
@@ -82,7 +84,7 @@
                 </a>
                 <span class="right">
                     <a href="/websocchatroom/logout.jsp">
-                        <strong>Logout</strong>
+                         <strong>Logout: <%out.println(session.getAttribute("userName")); %></strong>
                     </a>
                 </span>
             </div><!--/ Codrops top bar -->
@@ -90,7 +92,7 @@
 			<header>
 			
 				<h1>Messaging System <strong>ChatRoom</strong></h1>
-				<h3>Have fun...</h3>
+				<h3>Have fun...</h3> 
 				
 
 				<div class="support-note">
