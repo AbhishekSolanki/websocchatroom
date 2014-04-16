@@ -18,10 +18,11 @@
             webSocket.onmessage = function(message){processMessage(message);};
             webSocket.onclose = function(message){processClose(message);};
             webSocket.onerror = function(message){processError(message);};
-            var userName = "<%= session.getAttribute("userName") %>";
+            
+            
             function processOpen(message) {
                 messagesTextArea.value += "Server Connected..."+"\n";
-                webSocket.send(userName);
+                webSocket.send("<%= session.getAttribute("userName") %>");
             }
             function processMessage(message)
             {
