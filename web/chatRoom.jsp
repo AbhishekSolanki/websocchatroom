@@ -70,11 +70,11 @@
 		
 			<!-- Codrops top bar -->
             <div class="codrops-top">
-                <a href="/websocchatroom/home.jsp">
+                <a href="home">
                     <strong>&laquo; Previous : </strong>Home
                 </a>
                 <span class="right">
-                    <a href="/websocchatroom/logout.jsp">
+                    <a href="logout">
                          <strong>Logout: <%out.println(session.getAttribute("userName")); %></strong>
                     </a>
                 </span>

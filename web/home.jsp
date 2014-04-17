@@ -21,11 +21,11 @@
 		
 			<!-- Codrops top bar -->
             <div class="codrops-top">
-                <a href="signIn.html">
+                <a href="signIn">
                     <strong>&laquo; Previous : </strong>SIGN IN
                 </a>
                 <span class="right">
-                    <a href="/websocchatroom/logout.jsp">
+                    <a href="/websocchatroom/logout">
                         <strong>Logout: <%out.println(session.getAttribute("userName")); %></strong>
                     </a>
                 </span>
@@ -50,7 +50,7 @@
                             
                             <nav class="codrops-demos">
                                 <br>
-                                <a class="current-demo" href="/websocchatroom/chatRoom.jsp">Chat Room</a>
+                                <a class="current-demo" href="chatRoom">Chat Room</a>
 					<a href="index2.html">Chat</a>
 					<a href="index3.html">File Transfer</a>
 					<a href="index4.html">History</a>

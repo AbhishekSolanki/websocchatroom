@@ -24,7 +24,7 @@
 		
 			<!-- Codrops top bar -->
             <div class="codrops-top">
-                <a href="signIn.html">
+                <a href="signIn">
                     <strong>&laquo; Previous : </strong>SIGN IN
                 </a>
                 <span class="right">
