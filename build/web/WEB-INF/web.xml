@@ -59,6 +59,16 @@
         <location>/error?errorCode=404</location>
     </error-page>
     
+    <error-page>
+        <error-code>405</error-code>
+        <location>/error?errorCode=405</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error?errorCode=500</location>
+    </error-page>
+    
     <session-config>
         <session-timeout>
             30
