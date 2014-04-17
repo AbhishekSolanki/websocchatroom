@@ -13,35 +13,30 @@ import javax.websocket.Session;
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Abhishek Solanki
  */
 public class Handler {
-   
+
     public static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
-    public static Hashtable<Session,Session> hash = new Hashtable<>(20);
-     
-    public Set<Session> getSession()
-    {
+    public static Hashtable<Session, Session> hash = new Hashtable<>(20);
+
+    public Set<Session> getSession() {
         return chatroomUsers;
-        
+
     }
-    public void putHash(Session userSession,Session partySession)
-    {
-        hash.put(userSession,partySession);
+
+    public void putHash(Session userSession, Session partySession) {
+        hash.put(userSession, partySession);
     }
-    
-    public Session getHash(Session userName)
-    {
-       // Set<Entry<Session, Session>> entires = hash.entrySet();
+
+    public Session getHash(Session userName) {
+        // Set<Entry<Session, Session>> entires = hash.entrySet();
         return hash.get(userName);
     }
-    
-    public void removeHash(String userName)
-    {
+
+    public void removeHash(String userName) {
         hash.remove(userName);
     }
-   
 }

@@ -4,7 +4,8 @@
     Author     : Abhishek Solanki
     Summary    : Matches errorCode and displays relevent userfriendly messages
 --%>
-<!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page isErrorPage="TRUE" %>
 <html lang="en">
     <head>
 		<meta charset="UTF-8" />
@@ -54,19 +55,24 @@
             
             if(errorCode.equals("UPNULL"))
             {
-                out.println("<center><h3>It seems you have left the username or password field blank, Please click <b><u><a href=signIn.html>here</a></u></b> to try again</center></h3>");
+                out.println("<center><h3>It seems you have left the username or password field blank, Please click <b><u><a href=signIn>here</a></u></b> to try again</center></h3>");
             }
             else if(errorCode.equals("LOGINERR")) 
             {
-                 out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
+                 out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn>here</a></u></b> to try again </center></h3>");
             }
             else if(errorCode.equals("INVALIDSESS")) 
             {
-                 out.println("<center><h3>This session does not exist !, Please click <b><u><a href=signIn.html>here</a></u></b> to try again </center></h3>");
+                 out.println("<center><h3>This session does not exist !, Please click <b><u><a href=signIn>here</a></u></b> to try again </center></h3>");
+            }
+            else if(errorCode.equals("404")) 
+            {
+                 out.println("<center><h1>404 &nbsp;:(</h1></center><br>");
+                 out.println("<center><h3>The page you are looking for does not exist ! </center></h3>");
             }
             else
             {
-                out.println("<center><h3>Our server failed to track down your error ! Please click <b><u><a href=signIn.html>here</a></u></b> to try again</center></h3>");
+                out.println("<center><h3>Our server failed to track down your error ! Please click <b><u><a href=signIn>here</a></u></b> to try again</center></h3>");
             }
         %>
                             

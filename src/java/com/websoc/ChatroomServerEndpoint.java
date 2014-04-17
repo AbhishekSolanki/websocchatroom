@@ -25,102 +25,104 @@ import com.websoc.Handler;
 @ServerEndpoint("/chatroomserverendpoint")
 public class ChatroomServerEndpoint {
 
-    String username=null,arrayListMessage=null;
+    String username = null, arrayListMessage = null;
     Date d = new Date();
     ArrayList<String> allMessages = new ArrayList<>();
     static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
-    Iterator<Session> iterator = chatroomUsers.iterator(); 
+    Iterator<Session> iterator = chatroomUsers.iterator();
     Handler handler = new Handler();
 
-    
     @OnOpen
-    public void onOpen(Session userSession) throws IOException
-    {
+    public void onOpen(Session userSession) throws IOException {
         chatroomUsers.add(userSession);
         Iterator<Session> iterator = chatroomUsers.iterator();
-        while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
+        while (iterator.hasNext()) {
+            (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
+        }
     }
-     
+
     @OnMessage
     public String onMessage(String message, Session UserSession) throws IOException {
-       username = (String)UserSession.getUserProperties().get("username");
-       Iterator<Session> iterator = chatroomUsers.iterator(); 
-       if(username==null) {
-            UserSession.getUserProperties().put("username",message);
-            UserSession.getBasicRemote().sendText(buildJsonData("System","You are now connected as "+message));
-           while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonUsername());
-       } else {
-          
-         
-           
-           // allMessages = (String)UserSession.getUserProperties().get("messages");
-           while(iterator.hasNext()) iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
+        username = (String) UserSession.getUserProperties().get("username");
+        Iterator<Session> iterator = chatroomUsers.iterator();
+        if (username == null) {
+            UserSession.getUserProperties().put("username", message);
+            UserSession.getBasicRemote().sendText(buildJsonData("System", "You are now connected as " + message));
+            while (iterator.hasNext()) {
+                iterator.next().getBasicRemote().sendText(buildJsonUsername());
+            }
+        } else {
+
+
+
+            // allMessages = (String)UserSession.getUserProperties().get("messages");
+            while (iterator.hasNext()) {
+                iterator.next().getBasicRemote().sendText(buildJsonData(username, message));
+            }
             UserSession.getBasicRemote().sendText(buildJsonUsername());
             //make entries in DB for received message
-       }
+        }
         return null;
     }
-    
+
     @OnClose
-    public void onClose(Session userSession) throws IOException
-    {
-        
+    public void onClose(Session userSession) throws IOException {
+
         chatroomUsers.remove(userSession);
-        Iterator<Session> iterator = chatroomUsers.iterator(); 
-        while(iterator.hasNext()) (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
-       
+        Iterator<Session> iterator = chatroomUsers.iterator();
+        while (iterator.hasNext()) {
+            (iterator.next()).getBasicRemote().sendText(buildJsonUsername());
+        }
+
     }
-    
+
     @OnError
-    public void onError(Throwable t)
-    {
+    public void onError(Throwable t) {
         t.printStackTrace();
     }
-    
-    private String JsonUsername(String username)
-    {
-       JsonObject jasonObject1 = Json.createObjectBuilder().add("username",username).build();
-        StringWriter stringwriter = new StringWriter(); 
-        try(JsonWriter jsonwriter = Json.createWriter(stringwriter)) 
-        {
+
+    private String JsonUsername(String username) {
+        JsonObject jasonObject1 = Json.createObjectBuilder().add("username", username).build();
+        StringWriter stringwriter = new StringWriter();
+        try (JsonWriter jsonwriter = Json.createWriter(stringwriter)) {
             jsonwriter.write(jasonObject1);
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
-        catch(Throwable t) { t.printStackTrace(); }
-        System.out.println("USername: "+stringwriter.toString());
+        System.out.println("USername: " + stringwriter.toString());
         return stringwriter.toString();
     }
-    
+
     private String buildJsonData(String username, String message) {
-        JsonObject jasonObject = Json.createObjectBuilder().add("message",username+": "+message).build();
-        StringWriter stringwriter = new StringWriter(); 
-        try(JsonWriter jsonwriter = Json.createWriter(stringwriter)) 
-        {
+        JsonObject jasonObject = Json.createObjectBuilder().add("message", username + ": " + message).build();
+        StringWriter stringwriter = new StringWriter();
+        try (JsonWriter jsonwriter = Json.createWriter(stringwriter)) {
             jsonwriter.write(jasonObject);
             // Make entries in database for messages
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
-        catch(Throwable t) { t.printStackTrace(); }
-        System.out.println("Json String : "+stringwriter.toString());
+        System.out.println("Json String : " + stringwriter.toString());
         return stringwriter.toString();
     }
-    
-    private String buildJsonUsername()
-    {
+
+    private String buildJsonUsername() {
         Iterator<String> iterator = getUserName().iterator();
         JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
-        while(iterator.hasNext()) jsonArrayBuilder.add((String)iterator.next());    
-        System.out.println("User Array "+Json.createObjectBuilder().add("users", jsonArrayBuilder).build().toString());
+        while (iterator.hasNext()) {
+            jsonArrayBuilder.add((String) iterator.next());
+        }
+        System.out.println("User Array " + Json.createObjectBuilder().add("users", jsonArrayBuilder).build().toString());
         return Json.createObjectBuilder().add("users", jsonArrayBuilder).build().toString();
     }
-    
-    private Set<String> getUserName()
-    {
+
+    private Set<String> getUserName() {
         HashSet<String> returnset = new HashSet<String>();
-        Iterator<Session> iterator = chatroomUsers.iterator(); 
-        while(iterator.hasNext()) returnset.add(iterator.next().getUserProperties().get("username").toString());
+        Iterator<Session> iterator = chatroomUsers.iterator();
+        while (iterator.hasNext()) {
+            returnset.add(iterator.next().getUserProperties().get("username").toString());
+        }
         System.out.println(returnset);
         return returnset;
     }
-    
-  
-    
 }
