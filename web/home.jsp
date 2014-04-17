@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="sessionConstraintNoCache.jsp"%>
 <html lang="en">
     <head>
 		<meta charset="UTF-8" />
@@ -14,17 +16,7 @@
 		<!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
     </head>
     <body>
-        <%
-            response.setHeader("Cache-Control","no-cache");
-            response.setHeader("Cache-Control","no-store");
-            response.setHeader("Pragma","no-cache");
-            response.setDateHeader ("Expires", 0);
-
-            if(session.getAttribute("SessionID")==null && session.getAttribute("ID")==null)
-            {
-                response.sendRedirect("/websocchatroom/error.jsp?errorCode=INVALIDSESS");
-            }
-            %>
+       
         <div class="container">
 		
 			<!-- Codrops top bar -->

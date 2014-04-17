@@ -1,4 +1,6 @@
 <!--chatting module frontend-->
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@include file="sessionConstraintNoCache.jsp"%>
 <html lang="en">
     <head>
 		<meta charset="UTF-8" />
@@ -64,18 +66,6 @@
      
 
     <body>
-       
-        <% //Session checking script
-            response.setHeader("Cache-Control","no-cache");
-            response.setHeader("Cache-Control","no-store");
-            response.setHeader("Pragma","no-cache");
-            response.setDateHeader ("Expires", 0);
-
-            if(session.getAttribute("SessionID")==null && session.getAttribute("ID")==null)
-            {
-                response.sendRedirect("/websocchatroom/error.jsp?errorCode=INVALIDSESS");
-            }
-            %>
               <div class="container">
 		
 			<!-- Codrops top bar -->

@@ -1,3 +1,9 @@
+<%-- 
+    Document   : error
+    Created on : Apr 10, 2014, 1:18:53 PM
+    Author     : Abhishek Solanki
+    Summary    : Matches errorCode and displays relevent userfriendly messages
+--%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
