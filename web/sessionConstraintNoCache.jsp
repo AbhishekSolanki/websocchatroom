@@ -20,7 +20,7 @@
 
             if(session.getAttribute("SessionID")==null && session.getAttribute("ID")==null)
             {
-                response.sendRedirect("/websocchatroom/error.jsp?errorCode=INVALIDSESS");
+                response.sendRedirect("/websocchatroom/error?errorCode=INVALIDSESS");
             }
             %>
     </body>
