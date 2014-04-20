@@ -50,7 +50,7 @@
                     <a href="index2.html">Chat</a>
                     <a href="index3.html">File Transfer</a>
                     <a href="index4.html">History</a>
-                    <a href="index5.html">Account</a>
+                    <a href="account">Account</a>
                 </nav>
 
             </section>
