@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="sessionConstraintNoCache.jsp"%>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -43,6 +44,7 @@
                 <h1><strong><% out.println(session.getAttribute("userName") + "'s");%></strong> Account</h1>
                 <h2>personalize yourself...!</h2>
 
+             
 
                 <div class="support-note">
                     <span class="note-ie">Sorry, only modern browsers.</span>
@@ -51,7 +53,7 @@
             </header>
             <div  class="form">
                 <form id="contactform" method="post" action="/websocchatroom/signup"> 
-                    <p class="contact"><label for="name">Name</label></p> 
+                    <p class="contact"><label for="name">Name:</label></p> 
                     <input id="name" name="name" placeholder="change your name" required="" tabindex="1" type="text"> 
 
                     <p class="contact"><label for="email">Email</label></p> 
