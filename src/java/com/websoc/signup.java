@@ -39,7 +39,8 @@ public class signup extends HttpServlet {
             signupObject.execute();
             System.out.println("Registration Completed Successfully: signup.java Servlet");
         } catch (Exception ex) {
-            System.out.println(ex+"\n Error in Signup Servlets");
+            System.out.println(ex+"\n Error in Signup Servlet");
+            System.out.println(gender+" "+gender.length());
         }   
         
     }

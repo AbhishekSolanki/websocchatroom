@@ -41,8 +41,11 @@ public class signin extends HttpServlet {
                 session.setAttribute("SessionID", session.getId());
                 session.setAttribute("ID", ID);
                 session.setAttribute("userName", userName);
-                response.sendRedirect("/websocchatroom/home");
-
+                if (userName.equals("admin")) {
+                    response.sendRedirect("/websocchatroom/admin");
+                } else {
+                    response.sendRedirect("/websocchatroom/home");
+                }
                 // getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
 
             } catch (Exception e) {

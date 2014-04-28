@@ -5,7 +5,7 @@
 --%>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@include file="sessionConstraintNoCache.jsp"%>
+<%@include file="adminSessionConstraintNoCache.jsp"%>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />

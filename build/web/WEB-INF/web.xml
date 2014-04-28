@@ -4,7 +4,10 @@
         <servlet-name>signin</servlet-name>
         <servlet-class>com.websoc.signin</servlet-class>
     </servlet>
-  
+    <servlet>
+        <servlet-name>truncate</servlet-name>
+        <servlet-class>com.websoc.truncate</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>signin</servlet-name>
         <url-pattern>/signin</url-pattern>
@@ -69,7 +72,7 @@
         <error-code>500</error-code>
         <location>/error?errorCode=500</location>
     </error-page>
-      <servlet>
+    <servlet>
         <servlet-name>removeUser</servlet-name>
         <servlet-class>com.websoc.removeUser</servlet-class>
     </servlet>
@@ -92,6 +95,18 @@
     <servlet-mapping>
         <servlet-name>manageDatabase</servlet-name>
         <url-pattern>/manageDatabase</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>truncate</servlet-name>
+        <url-pattern>/truncate</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>admin</servlet-name>
+        <jsp-file>/admin.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>admin</servlet-name>
+        <url-pattern>/admin</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

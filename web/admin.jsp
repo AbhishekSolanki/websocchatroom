@@ -6,7 +6,7 @@
 
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="adminSessionConstraintNoCache.jsp"%>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -54,7 +54,7 @@
                     <br>
                     <a class="current-demo" href="chatRoom">Chat</a>
                     <a href="rmUsr">Remove Users</a>
-                    <a href="manageDB">Manage Database</a>
+                    <a href="manageDatabase">Manage Database</a>
                     <a href="stat">Statistics</a>
                     <a href="fileMgmt">File Management</a>
                 </nav>

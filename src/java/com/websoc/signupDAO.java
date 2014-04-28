@@ -34,7 +34,7 @@ public class signupDAO {
        Connection con = DriverManager.getConnection(url,dbUser,dbPass);
        Statement stm = con.createStatement();
          String query = "insert into messaging.main values(default,'"+userName+"','"+email+"',aes_encrypt('"+password+"','"+key+"'),"
-               + "'"+lastAccessed+"','"+IP+"','"+name+"','"+bDate+"','"+gender+"',default,'"+mobile+"');";
+                 + "'"+name+"','"+bDate+"','"+gender+"',default,'"+mobile+"',default);";
        stm.executeUpdate(query);
        System.out.println("Success in signupDAO");
        
