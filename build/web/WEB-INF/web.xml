@@ -108,6 +108,14 @@
         <servlet-name>admin</servlet-name>
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>stats</servlet-name>
+        <jsp-file>/stats.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>stats</servlet-name>
+        <url-pattern>/stats</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
