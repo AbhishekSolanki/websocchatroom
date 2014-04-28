@@ -1,18 +1,17 @@
 <%-- 
-    Document   : admin
-    Created on : Apr 24, 2014, 9:42:43 PM
+    Document   : removeUser
+    Created on : Apr 28, 2014, 2:31:20 PM
     Author     : Abhishek Solanki
 --%>
-
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@include file="sessionConstraintNoCache.jsp"%>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Admin</title>
+        <title>Remove User</title>
         <meta name="description" content="Custom Login Form Styling with CSS3" />
         <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
         <meta name="author" content="Codrops" />
@@ -27,8 +26,8 @@
 
             <!-- Codrops top bar -->
             <div class="codrops-top">
-                <a href="signIn">
-                    <strong>&laquo; Previous : </strong>SIGN IN
+                <a href="admin">
+                    <strong>&laquo; Previous : </strong>Dashboard
                 </a>
                 <span class="right">
                     <a href="/websocchatroom/logout">
@@ -38,7 +37,7 @@
             </div><!--/ Codrops top bar -->
 
             <header>
-                <h1>Welcome <strong>Admin</strong></h1>
+                <h1>Welcome <strong><% out.println(session.getAttribute("userName"));%></strong></h1>
                 <h2>Good to see you again...</h2>
 
 
@@ -52,11 +51,16 @@
                 <br>       
                 <nav class="codrops-demos">
                     <br>
-                    <a class="current-demo" href="chatRoom">Chat</a>
-                    <a href="rmUsr">Remove Users</a>
-                    <a href="manageDB">Manage Database</a>
-                    <a href="stat">Statistics</a>
-                    <a href="fileMgmt">File Management</a>
+                    <form action="removeUser" method="post" />
+                     Id <input type="text" name ="ID" />
+                     username <input type="text" name="userName" />
+                <input type="submit" value="Remove" />
+                </form>
+                    <a class="current-demo" href="chatRoom">Chat Room</a>
+                    <a href="index2.html">Chat</a>
+                    <a href="index3.html">File Transfer</a>
+                    <a href="index4.html">History</a>
+                    <a href="account">Account</a>
                 </nav>
 
             </section>
