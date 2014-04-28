@@ -36,8 +36,9 @@ public class signupDAO {
          String query = "insert into messaging.main values(default,'"+userName+"','"+email+"',aes_encrypt('"+password+"','"+key+"'),"
                  + "'"+name+"','"+bDate+"','"+gender+"',default,'"+mobile+"',default);";
        stm.executeUpdate(query);
-       System.out.println("Success in signupDAO");
-       
+             System.out.println("Success in signupDAO");
+      
+ 
        //Code to create a user table for storing messages and file names
     }      
   

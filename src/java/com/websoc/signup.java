@@ -38,9 +38,10 @@ public class signup extends HttpServlet {
         try {
             signupObject.execute();
             System.out.println("Registration Completed Successfully: signup.java Servlet");
+            response.sendRedirect("/websocchatroom/signIn");
         } catch (Exception ex) {
             System.out.println(ex+"\n Error in Signup Servlet");
-            System.out.println(gender+" "+gender.length());
+            response.sendRedirect("/websocchatroom/error?errorCode=SIGNUPERR");
         }   
         
     }

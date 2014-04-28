@@ -57,6 +57,8 @@
                         out.println("<center><h3>It seems you have left the username or password field blank, Please click <b><u><a href=signIn>here</a></u></b> to try again</center></h3>");
                     } else if (errorCode.equals("LOGINERR")) {
                         out.println("<center><h3>It seems you provided false login credentials, Please click <b><u><a href=signIn>here</a></u></b> to try again </center></h3>");
+                    } else if (errorCode.equals("SIGNUPERR")) {
+                        out.println("<center><h3>It seems you provided some false information, Please click <b><u><a href=/websocchatroom/signup.html>here</a></u></b> to try again </center></h3>");
                     } else if (errorCode.equals("RESTRICTED")) {
                         out.println("<center><h3>Access Denied ! <br> Please click <b><u><a href=signIn>here</a></u></b> to try again </center></h3>");
                     } else if (errorCode.equals("INVALIDSESS")) {

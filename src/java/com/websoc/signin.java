@@ -27,7 +27,7 @@ public class signin extends HttpServlet {
         password = request.getParameter("password");
 
         if (userName.equals("") || password.equals("")) {
-            response.sendRedirect("/websocchatroom/error?errorCode=UPNULL");
+              response.sendRedirect("/websocchatroom/error?errorCode=UPNULL");
             //out.println("Please don't fool our Server :-) !"); 
         } else {
             out.println("Plase wait a moment while we are trying to connect");
@@ -41,6 +41,7 @@ public class signin extends HttpServlet {
                 session.setAttribute("SessionID", session.getId());
                 session.setAttribute("ID", ID);
                 session.setAttribute("userName", userName);
+              
                 if (userName.equals("admin")) {
                     response.sendRedirect("/websocchatroom/admin");
                 } else {
