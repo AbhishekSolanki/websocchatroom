@@ -1,6 +1,6 @@
 <%-- 
-    Document   : signIn
-    Created on : Apr 17, 2014, 1:33:30 PM
+    Document   : forgotPassword
+    Created on : Apr 29, 2014, 4:11:57 AM
     Author     : Abhishek Solanki
 --%>
 
@@ -11,7 +11,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
         <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title>Sign In</title>
+        <title>Forgot Password</title>
         <meta name="description" content="Custom Login Form Styling with CSS3" />
         <meta name="keywords" content="css3, login, form, custom, input, submit, button, html5, placeholder" />
         <meta name="author" content="Codrops" />
@@ -43,7 +43,7 @@
 
             <header>
 
-                <h1>Messaging System <strong>Sign In</strong></h1>
+                <h1>Messaging System <strong>Forgot Password</strong></h1>
                 <h2>a better way to stay connected !</h2>
 
 
@@ -54,14 +54,14 @@
             </header>
 
             <section class="main">
-                <form class="form-1" action="/websocchatroom/signin" method="post">
+                <form class="form-1" action="/websocchatroom/forgotPass" method="post">
                     <p class="field">
 
                         <input type="text" name="userName" placeholder="Username">
                         <i class="icon-user icon-large"></i>
                     </p>
                     <p class="field">
-                        <input type="password" name="password" placeholder="Password">
+                        <input type="password" name="securityKey" placeholder="Security Key">
                         <i class="icon-lock icon-large"></i>
                     </p>
                     <p class="submit">
@@ -70,7 +70,7 @@
                 </form>
                 <nav class="codrops-demos">
                     <a class="current-demo" href="signup.html">Join Us</a>
-                    <a href="forgotPassword">Sign In trouble</a>
+                    <a href="index2.html">Sign In trouble</a>
                     <a href="index3.html">About</a>
                     <!--  <a href="index4.html"></a> -->
                     <!--  <a href="index5.html"></a> -->

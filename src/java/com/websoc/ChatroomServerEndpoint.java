@@ -27,10 +27,10 @@ public class ChatroomServerEndpoint {
 
     String username = null, arrayListMessage = null;
     Date d = new Date();
-    ArrayList<String> allMessages = new ArrayList<>();
+    //ArrayList<String> allMessages = new ArrayList<>();
     static Set<Session> chatroomUsers = Collections.synchronizedSet(new HashSet<Session>());
     Iterator<Session> iterator = chatroomUsers.iterator();
-    Handler handler = new Handler();
+    //Handler handler = new Handler();
 
     @OnOpen
     public void onOpen(Session userSession) throws IOException {

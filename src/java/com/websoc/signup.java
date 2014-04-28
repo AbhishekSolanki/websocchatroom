@@ -22,7 +22,7 @@ public class signup extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String name,email,userName,password,bMonth,bDate,bYear,gender,mobile;
+        String name,email,userName,password,bMonth,bDate,bYear,gender,mobile,securityKey;
         name=request.getParameter("name");
         email=request.getParameter("email");
         userName=request.getParameter("userName");
@@ -32,8 +32,9 @@ public class signup extends HttpServlet {
         bYear=request.getParameter("bYear");
         gender=request.getParameter("gender");
         mobile=request.getParameter("mobile"); 
+        securityKey=request.getParameter("securityKey");
         String birthDate = bDate+"-"+bMonth+"-"+bYear;
-        signupDAO signupObject = new signupDAO(name, email, userName, password, birthDate, gender, mobile);
+        signupDAO signupObject = new signupDAO(name, email, userName, password, birthDate, gender, mobile,securityKey);
         
         try {
             signupObject.execute();

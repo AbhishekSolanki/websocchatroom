@@ -24,7 +24,7 @@ public class signinDAO {
  
     public signinDAO(String userName, String password) {
         this.userName = userName;
-        this.password = password;
+        this.password = password; //or security key
     }
      
    int exeute() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
@@ -36,6 +36,17 @@ public class signinDAO {
        ResultSet rs =  stm.executeQuery(query);
        if(rs.next()) {System.out.println("User "+userName+" with ID "+rs.getInt(1)+" has logged in");}
        return rs.getInt(1);
+    }
+   
+   String forgotPass() throws ClassNotFoundException, InstantiationException, IllegalAccessException, SQLException {
+        
+       Class.forName("com.mysql.jdbc.Driver").newInstance();
+       Connection con = DriverManager.getConnection(url,dbUser,dbPass);
+       Statement stm = con.createStatement();
+       String q2 = "SELECT aes_decrypt(password,'"+key+"') FROM messaging.main where userName='"+userName+"' and securityKey=aes_encrypt('"+password+"','"+key+"');";
+       ResultSet rs2 =  stm.executeQuery(q2);
+       if(rs2.next()) {System.out.println("User "+userName+" with ID "+rs2.getString(1)+" has logged in");}
+       return rs2.getString(1);
     }
      
 }

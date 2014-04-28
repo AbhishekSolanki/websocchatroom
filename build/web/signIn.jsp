@@ -57,7 +57,7 @@
                 <form class="form-1" action="/websocchatroom/signin" method="post">
                     <p class="field">
 
-                        <input type="text" name="userName" placeholder="Username or email">
+                        <input type="text" name="userName" placeholder="Username">
                         <i class="icon-user icon-large"></i>
                     </p>
                     <p class="field">
@@ -70,7 +70,7 @@
                 </form>
                 <nav class="codrops-demos">
                     <a class="current-demo" href="signup.html">Join Us</a>
-                    <a href="index2.html">Sign In trouble</a>
+                    <a href="forgotPassword">Sign In trouble</a>
                     <a href="index3.html">About</a>
                     <!--  <a href="index4.html"></a> -->
                     <!--  <a href="index5.html"></a> -->
