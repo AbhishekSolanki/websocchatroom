@@ -16,7 +16,12 @@
         <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
     </head>
     <body>
+<% 
 
+    
+
+
+%>
         <div class="container">
 
             <!-- Codrops top bar -->
@@ -32,7 +37,7 @@
             </div><!--/ Codrops top bar -->
 
             <header>
-                <h1>Welcome <strong><% out.println(session.getAttribute("userName"));%></strong></h1>
+                <h1>Welcome <strong><% out.println(session.getAttribute("userName"));%> </strong></h1>
                 <h2>Good to see you again...</h2>
 
 
@@ -47,9 +52,8 @@
                 <nav class="codrops-demos">
                     <br>
                     <a class="current-demo" href="chatRoom">Chat Room</a>
-                    <a href="index2.html">Chat</a>
-                    <a href="index3.html">File Transfer</a>
-                    <a href="index4.html">History</a>
+                    <a href="chat">Chat</a>
+                    <a href="history">History</a>
                     <a href="account">Account</a>
                 </nav>
 

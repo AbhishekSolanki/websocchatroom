@@ -56,12 +56,7 @@
                      username <input type="text" name="userName" />
                 <input type="submit" value="Remove" />
                 </form>
-                    <a class="current-demo" href="chatRoom">Chat Room</a>
-                    <a href="index2.html">Chat</a>
-                    <a href="index3.html">File Transfer</a>
-                    <a href="index4.html">History</a>
-                    <a href="account">Account</a>
-                </nav>
+                  
 
             </section>
         </div>

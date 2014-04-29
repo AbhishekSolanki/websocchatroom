@@ -31,8 +31,8 @@
 
             <!-- Codrops top bar -->
             <div class="codrops-top">
-                <a href="#">
-                    <strong>&laquo; Previous Demo: </strong>
+                <a href="signIn">
+                    <strong>&laquo; Previous: Sign In</strong>
                 </a>
                 <span class="right">
                     <a href="#">
@@ -70,7 +70,7 @@
                 </form>
                 <nav class="codrops-demos">
                     <a class="current-demo" href="signup.html">Join Us</a>
-                    <a href="index2.html">Sign In trouble</a>
+                    <a href="forgotPassword">Sign In trouble</a>
                     <a href="index3.html">About</a>
                     <!--  <a href="index4.html"></a> -->
                     <!--  <a href="index5.html"></a> -->

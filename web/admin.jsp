@@ -56,7 +56,6 @@
                     <a href="rmUsr">Remove Users</a>
                     <a href="manageDatabase">Manage Database</a>
                     <a href="stat">Statistics</a>
-                    <a href="fileMgmt">File Management</a>
                 </nav>
 
             </section>

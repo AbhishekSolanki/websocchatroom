@@ -41,7 +41,11 @@ public class signin extends HttpServlet {
                 session.setAttribute("SessionID", session.getId());
                 session.setAttribute("ID", ID);
                 session.setAttribute("userName", userName);
-              
+                java.util.Date dt = new java.util.Date();
+
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                 String currentTime = sdf.format(session.getCreationTime());
+                 signinObject.history(ID,request.getRemoteAddr(),currentTime,session.getId());
                 if (userName.equals("admin")) {
                     response.sendRedirect("/websocchatroom/admin");
                 } else {
@@ -50,7 +54,7 @@ public class signin extends HttpServlet {
                 // getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
 
             } catch (Exception e) {
-                //  System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
+                  System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
                 response.sendRedirect("/websocchatroom/error?errorCode=LOGINERR");
                 //  out.println("Error while login, please try again !");
 

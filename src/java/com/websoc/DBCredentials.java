@@ -10,19 +10,19 @@ package com.websoc;
  */
 public class DBCredentials {
     
-    String getDBUrl()
+    public String getDBUrl()
     {
         return "jdbc:mysql://localhost:3306/";
     }
-    String getDBUser()
+   public String getDBUser()
     {
         return "root";
     }
-    String getDBPass()
+    public String getDBPass()
     {
         return "krish";
     }
-    String getKEY()
+    public String getKEY()
     {
         return "messaginSystem";
     }

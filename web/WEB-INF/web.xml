@@ -120,6 +120,22 @@
         <servlet-name>forgotPass</servlet-name>
         <url-pattern>/forgotPass</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>chat</servlet-name>
+        <jsp-file>/chat.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>chat</servlet-name>
+        <url-pattern>/chat</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>history</servlet-name>
+        <jsp-file>/history.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>history</servlet-name>
+        <url-pattern>/history</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
