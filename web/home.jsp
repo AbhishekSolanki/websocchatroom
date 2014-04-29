@@ -16,12 +16,12 @@
         <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
     </head>
     <body>
-<% 
-
-    
+        <%
 
 
-%>
+
+
+        %>
         <div class="container">
 
             <!-- Codrops top bar -->

@@ -40,7 +40,7 @@
 
             <header>
                 <h1><strong><% out.println(session.getAttribute("userName"));%>'s</strong> History</h1>
-              
+
 
 
                 <div class="support-note">
@@ -63,16 +63,16 @@
                         Class.forName("com.mysql.jdbc.Driver").newInstance();
                         Connection con = DriverManager.getConnection(url, dbUser, dbPass);
                         Statement stm = con.createStatement();
-                        String id= session.getAttribute("ID").toString();
-                        String query = "SELECT * FROM messaging.history where ID='"+id+"'";
-                        ResultSet rs = stm.executeQuery(query); 
-                     
-                       while (rs.next()) {
-                           
-                            out.println( "IP: "+rs.getString(2) +" <br>Time: " +rs.getString(3)+ "<br>Session ID: "+ rs.getString(4)); %>
-                         <br><br> <% } %> 
-   
-                   
+                        String id = session.getAttribute("ID").toString();
+                        String query = "SELECT * FROM messaging.history where ID='" + id + "'";
+                        ResultSet rs = stm.executeQuery(query);
+
+                        while (rs.next()) {
+
+                            out.println("IP: " + rs.getString(2) + " <br>Time: " + rs.getString(3) + "<br>Session ID: " + rs.getString(4));%>
+                    <br><br> <% }%> 
+
+
                 </nav>
 
             </section>

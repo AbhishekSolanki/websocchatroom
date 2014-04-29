@@ -17,7 +17,7 @@ public class accountDAOBean {
     String selectEmail() {
         return null;
     }
-    
+
     String selectMobile() {
         return null;
     }

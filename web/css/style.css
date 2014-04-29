@@ -147,7 +147,7 @@
 
     /* Styles */
     background: #ffffff;
-    
+
     /* Other masks trick */
     box-shadow: 0 62px white, -32px 31px white;
 }
@@ -509,7 +509,7 @@
     /* Width and position */
     width: 100%;
     padding: 8px 5px;
-  
+
     /* Styles */
     border: 1px solid #0273dd; /* Fallback */
     border: 1px solid rgba(0,0,0,0.4);
@@ -519,7 +519,7 @@
     border-radius: 3px;
     background: #38a6f0;
     cursor:pointer;
-  
+
     /* Font styles */
     font-family: 'Ubuntu', 'Lato', sans-serif;
     color: white;
@@ -569,7 +569,7 @@
     position: absolute;
     left: 34%;
     top: -7px;
-    
+
     /* Styles */
     border-radius: 50%;
     box-shadow: 0 0 6px 4px #fff;
@@ -691,7 +691,7 @@
     /* Size and position */
     width: 100%;
     padding: 8px 5px;
-    
+
     /* Styles */
     background: #634056;
     background: -moz-linear-gradient(rgba(99,64,86,0.5), rgba(76,49,65,0.7));

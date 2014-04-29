@@ -44,7 +44,7 @@
                 <h1><strong><% out.println(session.getAttribute("userName") + "'s");%></strong> Account</h1>
                 <h2>personalize yourself...!</h2>
 
-             
+
 
                 <div class="support-note">
                     <span class="note-ie">Sorry, only modern browsers.</span>

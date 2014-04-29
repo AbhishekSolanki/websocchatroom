@@ -27,18 +27,18 @@ public class forgotPass extends HttpServlet {
         password = request.getParameter("securityKey");
 
         if (userName.equals("") || password.equals("")) {
-              response.sendRedirect("/websocchatroom/error?errorCode=UPNULL");
+            response.sendRedirect("/websocchatroom/error?errorCode=UPNULL");
             //out.println("Please don't fool our Server :-) !"); 
         } else {
             signinDAO signinObject = new signinDAO(userName, password);
             try {
                 String pass = signinObject.forgotPass();
                 Handler handler = new Handler();
-               out.println("Your Password is: "+pass);
+                out.println("Your Password is: " + pass);
                 // getServletContext().getRequestDispatcher("/home.jsp").forward(request,response);
 
             } catch (Exception e) {
-                 System.out.println("Error in signin.java unable to communicate with signinDAO" +e);
+                System.out.println("Error in signin.java unable to communicate with signinDAO" + e);
                 response.sendRedirect("/websocchatroom/error?errorCode=LOGINERR");
                 //  out.println("Error while login, please try again !");
 

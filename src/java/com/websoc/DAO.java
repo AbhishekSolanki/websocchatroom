@@ -34,13 +34,12 @@ public class DAO {
         }
 
     }
-    
-    int truncatetable(String tableName) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException
-    {
-       Class.forName("com.mysql.jdbc.Driver").newInstance();
+
+    int truncatetable(String tableName) throws ClassNotFoundException, InstantiationException, SQLException, IllegalAccessException {
+        Class.forName("com.mysql.jdbc.Driver").newInstance();
         Connection con = DriverManager.getConnection(url, dbUser, dbPass);
         Statement stm = con.createStatement();
-        String query = "TRUNCATE messaging."+tableName+"";
+        String query = "TRUNCATE messaging." + tableName + "";
         if (stm.execute(query) == true) {
             return 1;
         } else {

@@ -3,59 +3,71 @@
     <head>
         <script type="text/javascript">
             var webSocket = new WebSocket("ws://localhost:8080/websocchatroom/Peer2Peer");
-            webSocket.onopen = function(message){processOpen(message);};
-            webSocket.onmessage = function(message){processMessage(message);};
-            webSocket.onclose = function(message){processClose(message);};
-            webSocket.onerror = function(message){processError(message);};
-            
+            webSocket.onopen = function(message) {
+                processOpen(message);
+            };
+            webSocket.onmessage = function(message) {
+                processMessage(message);
+            };
+            webSocket.onclose = function(message) {
+                processClose(message);
+            };
+            webSocket.onerror = function(message) {
+                processError(message);
+            };
+
             function processOpen(message) {
-                messagesTextArea.value += "Server Connected..."+"\n";
+                messagesTextArea.value += "Server Connected..." + "\n";
                 WebSocket.send("abhi");
             }
             function processMessage(message)
             {
                 var jsonData = JSON.parse(message.data);
-                
-                if(jsonData.message!=null) messagesTextArea.value +=jsonData.message+"\n";
-                
-                if(jsonData.users!=null)
-                    {
-                        OnlineUsersTextArea.value="";
-                        var i=0;
-                        while(i<Object.keys(jsonData.users).length) OnlineUsersTextArea.value+=jsonData.users[i++]+"\n";
-                    }
-                
+
+                if (jsonData.message != null)
+                    messagesTextArea.value += jsonData.message + "\n";
+
+                if (jsonData.users != null)
+                {
+                    OnlineUsersTextArea.value = "";
+                    var i = 0;
+                    while (i < Object.keys(jsonData.users).length)
+                        OnlineUsersTextArea.value += jsonData.users[i++] + "\n";
+                }
+
             }
             function sendMessage()
             {
-                if(textMessage.value!="close")
+                if (textMessage.value != "close")
                 {
-                webSocket.send(textMessage.value);
-                textMessage.value="";
+                    webSocket.send(textMessage.value);
+                    textMessage.value = "";
                 }
-                else webSocket.close();
-                    
+                else
+                    webSocket.close();
+
             }
-             function sendTo()
+            function sendTo()
             {
-                if(sendToText.value!="close")
+                if (sendToText.value != "close")
                 {
-                WebSocket.send(sendToText.value);
-                messagesTextArea.value="Please enter your message";
+                    WebSocket.send(sendToText.value);
+                    messagesTextArea.value = "Please enter your message";
                 }
-                else webSocket.close();
-                    
+                else
+                    webSocket.close();
+
             }
-            window.onbeforeunload=function() {
-             
-              webSocket.close();
+            window.onbeforeunload = function() {
+
+                webSocket.close();
             };
             function processClose(message) {
                 webSocket.send("Client disconnected...");
-                messagesTextArea.value += "Server Disconnect..."+"\n";
+                messagesTextArea.value += "Server Disconnect..." + "\n";
             }
             function processError(message) {
-                messagesTextArea.value += "error..."+"\n";
+                messagesTextArea.value += "error..." + "\n";
             }
         </script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -64,14 +76,14 @@
     <body>
         <form><br>TO: <input type="text" id="sendToText">  <input onclick="sendTo();" value="OK" type="button"/></form>
         <br>
-         <br><textarea id="messagesTextArea" rows="20" cols="70" readonly="readonly"></textarea>
-         <textarea id="OnlineUsersTextArea" rows="20" cols="20" readonly="readonly"></textarea>
+        <br><textarea id="messagesTextArea" rows="20" cols="70" readonly="readonly"></textarea>
+        <textarea id="OnlineUsersTextArea" rows="20" cols="20" readonly="readonly"></textarea>
         <form>
             <input id="textMessage" type="text"/>
             <input onclick="sendMessage();" value="Send Message" type="button"/>
         </form>
-       
-        
+
+
     </body>
 </html>
 

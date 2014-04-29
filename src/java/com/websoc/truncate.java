@@ -52,7 +52,6 @@ public class truncate extends HttpServlet {
         }
     }
 
-
     /**
      * Handles the HTTP
      * <code>POST</code> method.

@@ -52,11 +52,11 @@
                 <nav class="codrops-demos">
                     <br>
                     <form action="removeUser" method="post" />
-                     Id <input type="text" name ="ID" />
-                     username <input type="text" name="userName" />
-                <input type="submit" value="Remove" />
-                </form>
-                  
+                    Id <input type="text" name ="ID" />
+                    username <input type="text" name="userName" />
+                    <input type="submit" value="Remove" />
+                    </form>
+
 
             </section>
         </div>

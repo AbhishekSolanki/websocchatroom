@@ -57,8 +57,8 @@
                         <option value="main">Main</option>
                         <option value="history">History</option>
                     </select><br><br>
-                <input type="submit" value="Truncate" />
-                </form>
+                    <input type="submit" value="Truncate" />
+                    </form>
                     <a class="current-demo" href="chatRoom">Chat Room</a>
                     <a href="index2.html">Chat</a>
                     <a href="index3.html">File Transfer</a>

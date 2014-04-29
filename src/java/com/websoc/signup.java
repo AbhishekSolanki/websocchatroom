@@ -12,6 +12,7 @@ import com.websoc.signupDAO;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  * @author Abhishek Solanki
  */
@@ -21,30 +22,30 @@ public class signup extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String name,email,userName,password,bMonth,bDate,bYear,gender,mobile,securityKey;
-        name=request.getParameter("name");
-        email=request.getParameter("email");
-        userName=request.getParameter("userName");
-        password=request.getParameter("password");
-        bMonth=request.getParameter("bMonth");
-        bDate=request.getParameter("bDate");
-        bYear=request.getParameter("bYear");
-        gender=request.getParameter("gender");
-        mobile=request.getParameter("mobile"); 
-        securityKey=request.getParameter("securityKey");
-        String birthDate = bDate+"-"+bMonth+"-"+bYear;
-        signupDAO signupObject = new signupDAO(name, email, userName, password, birthDate, gender, mobile,securityKey);
-        
+
+        String name, email, userName, password, bMonth, bDate, bYear, gender, mobile, securityKey;
+        name = request.getParameter("name");
+        email = request.getParameter("email");
+        userName = request.getParameter("userName");
+        password = request.getParameter("password");
+        bMonth = request.getParameter("bMonth");
+        bDate = request.getParameter("bDate");
+        bYear = request.getParameter("bYear");
+        gender = request.getParameter("gender");
+        mobile = request.getParameter("mobile");
+        securityKey = request.getParameter("securityKey");
+        String birthDate = bDate + "-" + bMonth + "-" + bYear;
+        signupDAO signupObject = new signupDAO(name, email, userName, password, birthDate, gender, mobile, securityKey);
+
         try {
             signupObject.execute();
             System.out.println("Registration Completed Successfully: signup.java Servlet");
             response.sendRedirect("/websocchatroom/signIn");
         } catch (Exception ex) {
-            System.out.println(ex+"\n Error in Signup Servlet");
+            System.out.println(ex + "\n Error in Signup Servlet");
             response.sendRedirect("/websocchatroom/error?errorCode=SIGNUPERR");
-        }   
-        
+        }
+
     }
 
     @Override

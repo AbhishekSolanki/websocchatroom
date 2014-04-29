@@ -12,16 +12,15 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-         <%
-            response.setHeader("Cache-Control","no-cache");
-            response.setHeader("Cache-Control","no-store");
-            response.setHeader("Pragma","no-cache");
-            response.setDateHeader ("Expires", 0);
+        <%
+            response.setHeader("Cache-Control", "no-cache");
+            response.setHeader("Cache-Control", "no-store");
+            response.setHeader("Pragma", "no-cache");
+            response.setDateHeader("Expires", 0);
 
-            if(session.getAttribute("SessionID")==null && session.getAttribute("ID")==null)
-            {
+            if (session.getAttribute("SessionID") == null && session.getAttribute("ID") == null) {
                 response.sendRedirect("/websocchatroom/error?errorCode=INVALIDSESS");
             }
-            %>
+        %>
     </body>
 </html>

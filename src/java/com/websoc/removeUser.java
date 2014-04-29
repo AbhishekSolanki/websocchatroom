@@ -41,8 +41,8 @@ public class removeUser extends HttpServlet {
                 response.setHeader("Refresh", "2;url=/websocchatroom/rmUsr");
 
             } else {
-               out.println("Error removing user");
-               response.setHeader("Refresh", "2;url=/websocchatroom/rmUsr");
+                out.println("Error removing user");
+                response.setHeader("Refresh", "2;url=/websocchatroom/rmUsr");
             }
         } finally {
             out.close();
@@ -55,7 +55,7 @@ public class removeUser extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            System.out.println("Error at removeUser.java servlet : "+ex);
+            System.out.println("Error at removeUser.java servlet : " + ex);
         }
     }
 

@@ -57,9 +57,9 @@
                         <option value="main">Main</option>
                         <option value="history">History</option>
                     </select><br><br>
-                <input type="submit" value="Truncate" />
-                </form>
-                 
+                    <input type="submit" value="Truncate" />
+                    </form>
+
 
             </section>
         </div>
