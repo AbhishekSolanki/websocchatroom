@@ -55,7 +55,7 @@
                     <a class="current-demo" href="chatRoom">Chat</a>
                     <a href="rmUsr">Remove Users</a>
                     <a href="manageDatabase">Manage Database</a>
-                    <a href="stat">Statistics</a>
+                    <a href="stats">Statistics</a>
                 </nav>
 
             </section>

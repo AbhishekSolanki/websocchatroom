@@ -15,7 +15,7 @@
         <script src="js/modernizr.custom.63321.js"></script>
         <!--[if lte IE 7]><style>.main{display:none;} .support-note .note-ie{display:block;}</style><![endif]-->
         <script type="text/javascript">
-            var webSocket = new WebSocket("ws://localhost:8080/websocchatroom/chatroomserverendpoint");
+            var webSocket = new WebSocket("ws://192.168.1.15:8080/websocchatroom/chatroomserverendpoint");
             webSocket.onopen = function(message) {
                 processOpen(message);
             };
